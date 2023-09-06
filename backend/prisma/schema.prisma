@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String  @id @default(uuid())
+  title       String  @unique
+  description String? @db.Text
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Question  Question[]
+}
+
+model user {
+  id String @id @default(uuid())
+}
+
+model Question {
+  id          String    @id @default(uuid())
+  title       String
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  answer      String    @db.Text
+  explanation String    @db.LongText
+  detailNote  String    @db.LongText
+  calculation String    @db.Text
+
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // monitor user that answered this question
+}
+
+model Note {
+  id    String @id @default(uuid())
+  title String
+  note  String @db.LongText
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
