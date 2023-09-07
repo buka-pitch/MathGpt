@@ -1,19 +1,18 @@
 export const NavBarMenuContents = [
-
   {
     title: "HOME",
     href: "/",
   },
   {
     title: "Questions",
-    href: "/questions",
+    href: "/#questions",
   },
   {
     title: "Ai",
-    href: "/ai",
+    href: "/#Ai",
   },
   {
     title: "About",
-    href: "/about",
+    href: "/home",
   },
 ];

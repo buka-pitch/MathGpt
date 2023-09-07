@@ -19,7 +19,7 @@ import helmet from "helmet";
 env.config();
 
 const app = Express();
-const PORT = process.env.PORT | 5001;
+const PORT = process.env.PORT | 5000;
 app.use(Express.json());
 // app.use(Express.urlencoded());
 app.use(
@@ -76,5 +76,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log("server runing on https://localhost:" + PORT);
+  console.log("server runing on https://localhost:" + PORT);
 });

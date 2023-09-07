@@ -36,6 +36,7 @@ function ChatBox() {
   };
   return (
     <div
+      id="Ai"
       className="flex flex-col w-[400px] h-[500px] bg-slate-300 justify-center items-center relative rounded-lg shadow-md shadow-cyan-500 overflow-hidden
     "
     >
@@ -109,10 +110,14 @@ function ChatBox() {
     </div>
   );
 }
+
 export function FloatingAiChat({}: Props) {
   const [chatOpened, setChatOpened] = useState<boolean>(false);
+
   return (
-    <div className="fixed right-0 bottom-2  p-2 z-[900] flex flex-col justify-center items-center gap-4">
+    <div
+      className={`fixed right-0  bottom-2  p-2 z-[900] flex flex-col justify-center items-center gap-4`}
+    >
       <p className="bg-white rounded-lg p-2">Ask MatGpt Ai</p>
       <div
         className="flex flex-row justify-center items-center bg-cyan-400 w-[50px] h-[50px] rounded-full p-2 shadow-md shadow-orange-400 animate-pulse cursor-pointer hover:bg-cyan-500 hover:m-2"

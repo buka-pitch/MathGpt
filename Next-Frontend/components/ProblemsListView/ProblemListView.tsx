@@ -60,7 +60,10 @@ export function ProblemListView({}: Props) {
     notesFetcher();
   }, []);
   return (
-    <div className="flex flex-row max-md:flex-col justify-start items-start w-full  min-h-screen p-4 gap-4 ax-md:justify-center max-md:items-center max-md:w-full">
+    <div
+      id="questions"
+      className="flex flex-row max-md:flex-col justify-start items-start w-full  min-h-screen p-4 gap-4 ax-md:justify-center max-md:items-center max-md:w-full"
+    >
       <div className="flex-2 max-w-[300px] flex flex-col justify-center items-center h-full ">
         <div className="p-4 rounded-xl  bg-white w-full">
           <h3 className="p-2 text-sm text-start font-sans">Categories</h3>
