@@ -1,5 +1,5 @@
 "use client";
-import api from "@/Config/ApiConfig";
+import api from "../../../Config/ApiConfig";
 import React, { useEffect, useState } from "react";
 import parser from "html-react-parser";
 import { ToastContainer, toast } from "react-toastify";
