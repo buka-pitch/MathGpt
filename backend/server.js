@@ -28,10 +28,11 @@ app.use(
     })
 );
 app.use(
-    helmet({
-        noSniff: true,
-        xssFilter: true,
-    })
+  helmet({
+    noSniff: true,
+    xssFilter: true,
+    permittedCrossDomainPolicies: true,
+  })
 );
 app.use(
     expressSession({
@@ -76,5 +77,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log("server runing on https://localhost:" + PORT);
+    console.log("server runing on https://localhost:" + PORT);
 });
