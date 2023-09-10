@@ -9,6 +9,7 @@
         "dev": "nodemon src/index.js",
         "lint": "eslint --fix src",
         "test": "jest",
+        "postinstall": "prisma generate",
         "build": "prisma generate"
     },
     "keywords": [],

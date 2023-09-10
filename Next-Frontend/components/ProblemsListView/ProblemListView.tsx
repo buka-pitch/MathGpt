@@ -11,7 +11,7 @@ import PaginatedView from "../../components/PaginatedView";
 import Image from "next/image";
 type Props = {};
 
-type NotesType = {
+export type NotesType = {
   title: string;
   note: string;
 };
@@ -89,7 +89,7 @@ export function ProblemListView({}: Props) {
           <h3>Problems</h3>
 
           {problems ? (
-            <PaginatedView itemPerPage={10} items={problems} />
+            <PaginatedView itemPerPage={6} items={problems} />
           ) : (
             <div className="flex flex-row justify-center items-center w-full">
               <Image src="/loading.svg" width={100} height={100} alt="" />
@@ -101,22 +101,24 @@ export function ProblemListView({}: Props) {
         <div className="p-4 rounded-xl  bg-white w-full h-full">
           <h3>Note And References</h3>
         </div>
-        {notes ? (
-          notes.map((item, index) => (
-            <Link href={`/note/${item.title}`} className="w-full" passHref>
-              <div
-                key={index}
-                className="flex flex-col w-full min-h-[60px] justify-center items-start p-2 m-2 bg-white rounded-md h-full cursor-pointer hover:shadow-lg hover:border-b-4 shadow-gray-600 border-b-2 border-orange-600"
-              >
-                {item.title}
-              </div>
-            </Link>
-          ))
-        ) : (
-          <div className="flex flex-row justify-center items-center w-full">
-            <Image src="/loading.svg" width={100} height={100} alt="" />
-          </div>
-        )}
+        <div className="h-full w-full overflow-y-scroll">
+          {notes ? (
+            notes.map((item, index) => (
+              <Link href={`/note/${item.title}`} className="w-full" passHref>
+                <div
+                  key={index}
+                  className="flex flex-col w-full min-h-[60px] justify-center items-center p-2 m-2 bg-white rounded-md h-full cursor-pointer hover:shadow-lg hover:border-b-4 shadow-gray-600 border-b-2 border-orange-600 text-start"
+                >
+                  {item.title}
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="flex flex-row justify-center items-center w-full">
+              <Image src="/loading.svg" width={100} height={100} alt="" />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

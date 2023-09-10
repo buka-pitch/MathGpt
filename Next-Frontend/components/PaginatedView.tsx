@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { ListViewCard } from "./FeaturedQuestions/FeaturedQuestions";
 import Link from "next/link";
+import { NotesType } from "./ProblemsListView/ProblemListView";
 type Props = {
   itemPerPage: number;
   items: object[];

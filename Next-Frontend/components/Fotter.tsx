@@ -12,7 +12,7 @@ function Fotter() {
         </div>
         <h1 className="pr-4">Powered by PALM AI</h1>
       </div>
-      <div className="flex flex-row gap-4 justify-center items-center mt-12 w-full p-4">
+      <div className="flex flex-row gap-4 justify-center items-center max-md:items-start mt-12 w-full p-4">
         <div className="flex-1 text-slate-400 text-sm">
           <div>
             MathGpt is an AI-powered math learning platform that helps students
@@ -22,17 +22,15 @@ function Fotter() {
         <div className="flex-1">
           <div className=" text-slate-400 text-sm">
             <div>
-              MathGpt uses artificial intelligence to identify students'
-              strengths and weaknesses and provide them with the customized
-              support they need to succeed.
+              offers a variety of interactive exercises and activities that
+              allow students to learn at their own pace and in a way that is
+              most engaging for them.
             </div>
           </div>
         </div>
         <div className="flex-1">
           <div className=" text-slate-400 text-sm">
-            offers a variety of interactive exercises and activities that allow
-            students to learn at their own pace and in a way that is most
-            engaging for them.
+            Note : Some calculation or answers might not be 100% correct.
           </div>
         </div>
       </div>
