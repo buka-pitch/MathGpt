@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Category {
-  id          String  @id @default(uuid())
+  id          String  @id @default(cuid())
   title       String  @unique
   description String? @db.Text
 
@@ -22,11 +22,11 @@ model Category {
 }
 
 model user {
-  id String @id @default(uuid())
+  id String @id @default(cuid())
 }
 
 model Question {
-  id          String    @id @default(uuid())
+  id          String    @id @default(cuid())
   title       String
   category    Category? @relation(fields: [categoryId], references: [id])
   categoryId  String
@@ -42,7 +42,7 @@ model Question {
 }
 
 model Note {
-  id    String @id @default(uuid())
+  id    String @id @default(cuid())
   title String
   note  String @db.Text
 }

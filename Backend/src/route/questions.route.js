@@ -156,14 +156,11 @@ router.route("/question").get((req, res, next) => {
       });
     });
 
-  router.route("/get_answer/:questionId").get((req, res, next) => {
-    prisma.question
+  router.route("/get_answer/:questionId").get(async (req, res) => {
+    await prisma.question
       .findUnique({
         where: {
           id: req.params.questionId,
-        },
-        include: {
-          category: true,
         },
       })
       .then((question) => {
@@ -174,9 +171,9 @@ router.route("/question").get((req, res, next) => {
       })
       .catch((err) => {
         console.log(err);
-        res.status(400).json({
+        return res.status(400).json({
           status: "success",
-          message: err.message,
+          message: "Answer to this Question Not Found!",
         });
       });
   });
@@ -191,6 +188,7 @@ router.route("/question").get((req, res, next) => {
         },
       })
       .then((question) => {
+        // eslint-disable-next-line no-unused-vars
         const { answer, explanation, ...questionData } = question;
         return res.status(200).json({
           status: "success",
@@ -221,7 +219,7 @@ router.route("/featured_problems").get(async (req, res, next) => {
     featured,
   });
 });
-router.route("/generate_question/:question_from").get((req, res, next) => {
+router.route("/generate_question/:question_from").get((req, res) => {
   let format =
     "math  problem with its category, answer, calculation,  explanation and detailNote response should be in json each field using html also the json fields on your response must be category,problem,explanation,calculation.answer,detailNote. note that explanation must not contain answer.";
   if (req.params.question_from) {
