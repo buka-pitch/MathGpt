@@ -11,7 +11,7 @@ let headers = [
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start">
+    <main className="flex min-h-screen flex-col items-center justify-start bg-slate-200 text-black ">
       <div className="flex flex-row justify-start items-center bg-white w-full min-h-[200px] relative">
         <div className="flex-1 flex flex-row justify-between items-center bg-pattern w-full h-[200px] p-5">
           <div className=" bg-gray-900  bg-opacity-50 text-white font-semibold p-4 w-[70%] h-[70%] flex flex-col justify-center items-center rounded-md">

@@ -81,7 +81,6 @@ const Question = ({
       } else {
         toast.error("Answer Not Correct");
       }
-      toast.info(res.answer);
       setIsSubmiting(false);
     } catch (error: any) {
       setIsSubmiting(false);
@@ -89,7 +88,7 @@ const Question = ({
     }
   }
   return (
-    <div className="w-full h-full min-h-[65vh] gap-4">
+    <div className="w-full h-full min-h-[65vh] gap-4 bg-slate-200">
       {celebrate && (
         <ConfettiExplosion
           force={0.8}
@@ -102,14 +101,19 @@ const Question = ({
         <div className="flex flex-row justify-center items-center w-full h-full gap-4 max-md:flex-col p-4">
           <div className=" flex-grow w-full p-6 m-2 bg-slate-900 rounded-lg shadow-md shadow-orange-500  relative">
             <div className="flex flex-col gap-6">
-              <div className="absolute bottom-5 right-10">
+              <div className="absolute bottom-5 right-10 flex flex-col justify-center items-center gap-2">
                 {!question.answer ? (
-                  <button
-                    className="bg-green-500 p-2 rounded-md hover:bg-green-700"
-                    onClick={getAnswer}
-                  >
-                    Check Answer
-                  </button>
+                  <>
+                    <p className="text-[8px] font-mono text-yellow-500">
+                      if you give up ?
+                    </p>
+                    <button
+                      className="bg-green-500 p-2 rounded-md hover:bg-green-700"
+                      onClick={getAnswer}
+                    >
+                      Review Answer
+                    </button>
+                  </>
                 ) : (
                   <p className="text-sm text-green-600">
                     Solution powered by AI

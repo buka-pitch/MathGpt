@@ -76,7 +76,7 @@ const page = ({ params }: { params: { noteTitle: string } }) => {
     </div>
   );
   return (
-    <div className=" min-h-[65vh] ">
+    <div className=" min-h-[65vh] bg-slate-200">
       <div className="flex flex-row max-md:flex-col justify-center items-start max-md:ite w-full p-2">
         {noteData ? (
           <div className="flex-2 flex flex-col justify-start items-center  p-2 overflow-scroll h-screen max-md:w-full">
