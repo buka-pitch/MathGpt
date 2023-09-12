@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const BaseUrl = "https://math-gpt-exgg.vercel.app";
+const BaseUrl = "https://free-space.tech";
 export default axios.create({ baseURL: BaseUrl });
 
