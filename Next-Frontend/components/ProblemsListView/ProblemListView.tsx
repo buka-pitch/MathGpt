@@ -9,6 +9,7 @@ import Link from "next/link";
 import api from "../../Config/ApiConfig";
 import PaginatedView from "../../components/PaginatedView";
 import Image from "next/image";
+import FetchFailed from "@/components/FetchFailed";
 type Props = {};
 
 export type NotesType = {
@@ -20,15 +21,19 @@ export function ProblemListView({}: Props) {
   const [problems, setProblems] = useState<object[]>();
   const [category, setCategory] = useState<any>();
   const [notes, setNotes] = useState<NotesType[]>();
+  const [fetchQuestionError, setFetchQuestionError] = useState<boolean>(false);
+  const [fetchCategoryError, setFetchCategoryError] = useState<boolean>(false);
+  const [fetchNoteError, setFetchNoteError] = useState<boolean>(false);
+
   useEffect(() => {
     let fetcher = async () => {
       try {
         let res = (await api.get("/api/question/question")).data;
         setProblems(res.question);
-        console.log(res);
+
         return res;
       } catch (error) {
-        console.log(error);
+        setFetchQuestionError(true);
       }
     };
 
@@ -39,10 +44,10 @@ export function ProblemListView({}: Props) {
       try {
         let res = (await api.get("/api/question/get_categories")).data;
         setCategory(res.category);
-        console.log(res);
+
         return res;
       } catch (error) {
-        console.log(error);
+        setFetchCategoryError(true);
       }
     };
     categoryFetcher();
@@ -54,7 +59,7 @@ export function ProblemListView({}: Props) {
         setNotes(note.notes);
         return note;
       } catch (error) {
-        console.log(error);
+        setFetchNoteError(true);
       }
     };
     notesFetcher();
@@ -68,7 +73,9 @@ export function ProblemListView({}: Props) {
         <div className="p-4 rounded-xl  bg-white w-full">
           <h3 className="p-2 text-sm text-start font-sans">Categories</h3>
           <div className="  m-2 p-2 rounded-lg flex flex-row flex-wrap justify-center items-center gap-4 overflow-hidden ">
-            {category ? (
+            {fetchCategoryError ? (
+              <FetchFailed />
+            ) : category ? (
               category.map((item: any, index: any) => {
                 return (
                   <div key={index} className=" shadow-md p-2 rounded-lg">
@@ -88,7 +95,8 @@ export function ProblemListView({}: Props) {
         <div className="p-4 rounded-xl  bg-white w-full">
           <h3>Problems</h3>
 
-          {problems ? (
+          {fetchQuestionError && <FetchFailed />}
+          {!fetchQuestionError && problems ? (
             <PaginatedView itemPerPage={6} items={problems} />
           ) : (
             <div className="flex flex-row justify-center items-center w-full">
@@ -102,7 +110,9 @@ export function ProblemListView({}: Props) {
           <h3>Note And References</h3>
         </div>
         <div className="h-full w-full overflow-y-scroll">
-          {notes ? (
+          {fetchNoteError ? (
+            <FetchFailed />
+          ) : notes ? (
             notes.map((item, index) => (
               <Link href={`/note/${item.title}`} className="w-full" passHref>
                 <div

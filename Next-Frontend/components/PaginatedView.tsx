@@ -11,7 +11,7 @@ type Props = {
 
 function Items({ currentItems }: any) {
   return (
-    <div className="  m-4 p-2 rounded-lg flex flex-col  justify-start items-start gap-4 overflow-hidden relative">
+    <div className="m-4 p-2 rounded-lg flex flex-col  justify-start items-start gap-4 overflow-hidden relative w-full ">
       {currentItems &&
         currentItems.map((item: any, index: any) => {
           return (
@@ -52,14 +52,14 @@ function PaginatedView({ itemPerPage, items }: Props) {
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel=" next > "
+        nextLabel=" > "
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={1}
         pageCount={pageCount}
-        previousLabel=" < previous  "
+        previousLabel=" < "
         renderOnZeroPageCount={null}
-        containerClassName="flex flex-row justify-center items-center gap-4 bg-white w-full"
-        pageClassName="p-2 bg-orange-300 rounded-md"
+        containerClassName="flex flex-row justify-center items-center gap-4 bg-white  overflow-hidden"
+        pageClassName="p-2 bg-orange-300 rounded-md "
         previousClassName="p-2 bg-orange-500 rounded-md"
         nextClassName="p-2 bg-orange-500 rounded-md"
         activeClassName="bg-white p-4 shadow-md shadow-slate-500"

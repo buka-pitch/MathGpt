@@ -16,9 +16,9 @@ export const ListViewCard = ({ Title, Category, description }: any) => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="flex flex-col justify-between items-center  rounded-lg w-full min-h-[100px] h-max bg-white shadow-lg shadow-orange-400 cursor-pointer  transition-all ease-in-out delay-0  m"
+        className="flex flex-col justify-between items-center  rounded-lg w-full min-h-[100px] h-max bg-white shadow-lg shadow-orange-400 cursor-pointer  transition-all ease-in-out delay-0 "
       >
-        <div className="flex-grow max-md:w-full w-[800px] text-sm font-mono font-bold text-orange-500 bg-slate-900 p-4 rounded-lg h-[80px] overflow-hidden relative">
+        <div className="flex-grow  max-md:w-[400px] w-[800px] text-sm font-mono font-bold text-orange-500 bg-slate-900 p-4 rounded-lg h-[80px] overflow-hidden relative">
           {parse(Title)}
           <div className="flex-grow max-md:w-full w-[800px] flex flex-col justify-center items-center ">
             <div className="absolute bottom-0 right-0 bg-white font-mono p-2 text-red-600 z-999 text-sm">
